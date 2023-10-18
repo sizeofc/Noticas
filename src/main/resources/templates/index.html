@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+   <head th:replace="~{/components/plantilla :: head}">
+    
+</head>
+    <body>
+        <nav th:replace="~{/components/plantilla :: navbar}"></nav>
+        
+        <div class="container">
+        <div class="row">
+            <!-- Itera a través de las noticias y crea un cardview para cada una -->
+            <div th:each="noticia : ${noticias}" class="col-md-4 ">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${noticia.titulo}"></h5>
+                        <p class="card-text" th:text="${noticia.cuerpo}"></p>
+                        <p class="card-text text-muted">Fecha de alta: <span th:text="${noticia.fechaAlta}"></span></p>
+                        <a th:href="@{/noticia/modificar/__${noticia.id}__}"><i class="fa fa-edit"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+        
+    </body>
+</html>
